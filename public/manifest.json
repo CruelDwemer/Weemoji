@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "Weemoji",
+  "version": "1.0",
+
+  "permissions": [
+    "tabs", "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["inject.js"]
+    }
+  ],
+  "browser_action": {
+    "default_title": "Weemoji",
+    "default_popup": "index.html"
+  }
+}
