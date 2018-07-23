@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SettingsModeButtons from './SettingsModeButtons';
 
 export default class EmojiComponent extends Component{
 
@@ -12,8 +13,13 @@ export default class EmojiComponent extends Component{
     }
 
     render() {
+        let { text, id } = this.props;
+
         return(
-            <button onClick={this.onButtonClick}>{this.props.text}</button>
+            <SettingsModeButtons
+                render={<button onClick={this.onButtonClick}>{text}</button>}
+                id={id}
+            />
         )
     }
 }

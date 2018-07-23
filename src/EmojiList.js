@@ -13,7 +13,7 @@ class EmojiList extends Component{
         return(
             <div>
                 {this.props.smiles.map(item => {
-                    return <ItemComponent text={item.text} />
+                    return <ItemComponent text={item.text} id={item.id} />
                 })}
             </div>
         )
