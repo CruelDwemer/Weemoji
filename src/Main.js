@@ -4,7 +4,12 @@ import EmojiList from './EmojiList';
 import Settings from './Settings';
 import { switchMode } from './redux/actions';
 
-class _Main extends Component {
+const apply = connect(
+    state => ({ mode: state.pages.mode }),
+    { switchMode: switchMode }
+)
+
+class Main extends Component {
 
     renderInputPanel = () => {
         if (this.props.mode) {
@@ -24,17 +29,4 @@ class _Main extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return { mode: state.pages.mode };
-};
-
-const mapDispatchToProps = dispatch => {
-    return {switchMode: () => dispatch(switchMode())}
-};
-
-const Main = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(_Main);
-
-export default Main;
+export default apply(Main);

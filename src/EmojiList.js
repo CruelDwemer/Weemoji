@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ItemComponent from './EmojiComponent';
 
-class _EmojiList extends Component{
+const apply = connect(
+    state => ({ smiles: state.items.smiles })
+)
+
+class EmojiList extends Component{
 
     render() {
         console.log("EmojiList ", this.props);
@@ -16,13 +20,4 @@ class _EmojiList extends Component{
     }
 }
 
-const mapStateToProps = state => {
-    console.log(state);
-    return { smiles: state.items.smiles };
-};
-
-const EmojiList = connect(
-    mapStateToProps
-)(_EmojiList);
-
-export default EmojiList;
+export default apply(EmojiList);

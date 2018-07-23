@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addItem } from './redux/actions';
 
-class _Settings extends Component{
+const apply = connect(
+    null,
+    { addItem: addItem }
+)
+
+class Settings extends Component{
     constructor() {
         super()
         this.state = {
@@ -33,17 +38,4 @@ class _Settings extends Component{
     }
 }
 
-const mapStateToProps = state => {
-    return { smiles: state.items.smiles };
-};
-
-const mapDispatchToProps = dispatch => {
-    return {addItem: (value) => dispatch(addItem(value))}
-};
-
-const Settings = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(_Settings);
-
-export default Settings;
+export default apply(Settings);
