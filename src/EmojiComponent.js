@@ -13,7 +13,7 @@ export default class EmojiComponent extends Component{
 
     render() {
         return(
-            <button onClick={() => this.onButtonClick()}>{this.props.text}</button>
+            <button onClick={this.onButtonClick}>{this.props.text}</button>
         )
     }
 }

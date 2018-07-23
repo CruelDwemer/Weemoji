@@ -31,7 +31,7 @@ class Settings extends Component{
                     onChange={this.OnInputChange}
                 />
                 <button
-                    onClick={() => this.onAddButtonClick()}
+                    onClick={this.onAddButtonClick}
                 >Add</button>
             </div>
         )
