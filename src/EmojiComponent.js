@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import SettingsModeButtons from './SettingsModeButtons';
+import { inject } from './redux/actions';
 
-export default class EmojiComponent extends Component{
+const apply = connect(
+    null,
+    {inject: inject}
+)
 
-    onButtonClick = async () => {
-        await window.chrome.tabs.getSelected(null, (tab) => {
-          window.chrome.tabs.sendMessage(
-            tab.id,
-            {message: this.props.text}
-          )
-        })
-    }
-
+class EmojiComponent extends Component{
     render() {
-        let { text, id } = this.props;
+        let { text, id, inject } = this.props;
 
         return(
             <SettingsModeButtons
-                render={<button onClick={this.onButtonClick}>{text}</button>}
+                render={<button onClick={() => inject(text)}>{text}</button>}
                 id={id}
             />
         )
     }
 }
+
+export default apply(EmojiComponent);

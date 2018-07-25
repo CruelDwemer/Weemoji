@@ -11,3 +11,8 @@ export const deleteItem = (id) => ({
     type: 'DELETE_ITEM',
     id
 })
+
+export const inject = (text) => ({
+    type:'INJECT',
+    text
+})

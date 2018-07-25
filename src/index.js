@@ -3,11 +3,17 @@ import { render } from 'react-dom';
 import Main from './Main';
 import './style.css';
 
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import createSagaMiddleware from 'redux-saga';
 import rootReducer from './redux/reducers/rootReducer';
+import { inject } from './redux/sagas/injectSaga';
 
-const store = createStore(rootReducer);
+const sagaMiddleware = createSagaMiddleware();
+
+const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+
+sagaMiddleware.run(inject);
 
 class App extends Component {
 
