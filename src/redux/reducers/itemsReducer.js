@@ -1,3 +1,5 @@
+import { loadData } from '../../localStorage';
+
 const InitialState = {
     smiles: [
         {id: 0, text: ':))'},
@@ -5,7 +7,7 @@ const InitialState = {
     ]
 };
 
-const items = (state = InitialState, action) => {
+const items = (state = loadData() || InitialState, action) => {
     let { smiles } = state;
     switch (action.type) {
         case 'ADD_ITEM':

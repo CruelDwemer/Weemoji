@@ -21,7 +21,10 @@ class Settings extends Component{
     }
 
     onAddButtonClick = () => {
-        this.props.addItem(this.state.inputValue);
+        if(this.state.inputValue) {
+            this.props.addItem(this.state.inputValue);
+            this.setState({ inputValue: '' });
+        }
     }
 
     render() {
