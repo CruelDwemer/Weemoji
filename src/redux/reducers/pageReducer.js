@@ -1,9 +1,8 @@
 const InitialState = {
-    mode: true
+    mode: false
 }
 
 const pages = (state = InitialState, action) => {
-    console.log(action, state);
     switch (action.type) {
         case 'SWITCH':
             return {...state, mode: !state.mode}; 

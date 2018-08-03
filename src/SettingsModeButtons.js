@@ -16,7 +16,6 @@ class SettingsModeButtons extends Component{
     render() {
         return(
             <div>
-                {this.props.render}
                 <button>Edit</button>
                 <button onClick={this.onDeleteButtonClick}>Delete</button>
             </div>

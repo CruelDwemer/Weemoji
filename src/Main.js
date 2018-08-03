@@ -12,11 +12,10 @@ const apply = connect(
 class Main extends Component {
 
     render() {
-        console.log('Main ', this.props);
         const { switchMode, mode } = this.props;
         return(
         <div>
-            <button onClick={switchMode}>{mode ? 'Settings' : 'EmojiList'}</button>
+            <button onClick={switchMode}>{mode ? 'Regular' : 'Extended'}</button>
             {mode && <Settings />}
             <EmojiList />
         </div>

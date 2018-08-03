@@ -9,13 +9,12 @@ import createSagaMiddleware from 'redux-saga';
 import rootReducer from './redux/reducers/rootReducer';
 import { inject } from './redux/sagas/injectSaga';
 import { saveData } from './localStorage';
-import { middleware } from './middleware';
 
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
   rootReducer,
-  applyMiddleware(sagaMiddleware, middleware)
+  applyMiddleware(sagaMiddleware)
 );
 
 store.subscribe(() => {
