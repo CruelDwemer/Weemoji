@@ -1,20 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ItemComponent from './EmojiComponent';
+import SettingsModeButtons from './SettingsModeButtons';
+import { selectSmiles } from './redux/selectors';
 
 const apply = connect(
-    state => ({ smiles: state.items.smiles })
+    state => ({
+        smiles: selectSmiles(state),
+        mode: state.pages.mode
+    })
 )
 
 class EmojiList extends Component{
 
     render() {
-        console.log("EmojiList ", this.props);
+        const { smiles, mode } = this.props;
         return(
             <div>
-                {this.props.smiles.map(item => {
-                    return <ItemComponent text={item.text} id={item.id} />
-                })}
+                {smiles.map(item => (
+                    <div class='buttons-line' key={item.id}>
+                        <ItemComponent text={item.text}  />
+                        {mode ? <SettingsModeButtons id={item.id} /> : null}
+                    </div>
+                ))}
             </div>
         )
     }

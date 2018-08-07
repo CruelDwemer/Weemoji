@@ -10,13 +10,9 @@ const apply = connect(
 
 class EmojiComponent extends Component{
     render() {
-        let { text, id, inject } = this.props;
-
+        const { text, inject } = this.props;
         return(
-            <SettingsModeButtons
-                render={<button onClick={() => inject(text)}>{text}</button>}
-                id={id}
-            />
+            <button onClick={() => inject(text)}>{text}</button>
         )
     }
 }

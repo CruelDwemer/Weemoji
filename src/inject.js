@@ -1,10 +1,6 @@
 window.chrome.runtime.onMessage.addListener(
     (request, sender, sendResponse) => 
     {
-        console.log("request ", request);
-        console.log("sender ", sender);
-        console.log("sendResponse ", sendResponse);
-
         let activeElement = document.activeElement;
         if(activeElement.textContent == '')
         {
