@@ -1,8 +1,8 @@
-const InitialState = {
+const initialState = {
     mode: false
 }
 
-const pages = (state = InitialState, action) => {
+const pages = (state = initialState, action) => {
     switch (action.type) {
         case 'SWITCH':
             return {...state, mode: !state.mode}; 
