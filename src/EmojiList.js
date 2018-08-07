@@ -14,7 +14,7 @@ const apply = connect(
 class EmojiList extends Component{
 
     render() {
-        let { smiles, mode } = this.props;
+        const { smiles, mode } = this.props;
         return(
             <div>
                 {smiles.map(item => (

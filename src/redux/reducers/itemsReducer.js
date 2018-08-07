@@ -1,13 +1,13 @@
 import { loadData } from '../../localStorage';
 
-const InitialState = {
+const initialState = {
     smiles: [
         {id: 0, text: ':))'},
         {id: 1, text: ':(('}
     ]
 };
 
-const items = (state = loadData() || InitialState, action) => {
+const items = (state = loadData() || initialState, action) => {
     let { smiles } = state;
     switch (action.type) {
         case 'ADD_ITEM':

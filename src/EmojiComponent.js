@@ -10,7 +10,7 @@ const apply = connect(
 
 class EmojiComponent extends Component{
     render() {
-        let { text, inject } = this.props;
+        const { text, inject } = this.props;
         return(
             <button onClick={() => inject(text)}>{text}</button>
         )
