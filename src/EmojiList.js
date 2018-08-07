@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ItemComponent from './EmojiComponent';
 import SettingsModeButtons from './SettingsModeButtons';
+import { selectSmiles } from './redux/selectors';
 
 const apply = connect(
     state => ({
-        smiles: state.items.smiles,
+        smiles: selectSmiles(state),
         mode: state.pages.mode
     })
 )
@@ -16,14 +17,12 @@ class EmojiList extends Component{
         let { smiles, mode } = this.props;
         return(
             <div>
-                {smiles.map(item => {
-                    return (
-                        <div class='buttons-line' key={item.id}>
-                            <ItemComponent text={item.text}  />
-                            {mode ? <SettingsModeButtons id={item.id} /> : null}
-                        </div>
-                    )
-                })}
+                {smiles.map(item => (
+                    <div class='buttons-line' key={item.id}>
+                        <ItemComponent text={item.text}  />
+                        {mode ? <SettingsModeButtons id={item.id} /> : null}
+                    </div>
+                ))}
             </div>
         )
     }

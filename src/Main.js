@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import EmojiList from './EmojiList';
 import Settings from './Settings';
 import { switchMode } from './redux/actions';
+import { selectMode } from './redux/selectors';
 
 const apply = connect(
-    state => ({ mode: state.pages.mode }),
+    state => ({ mode: selectMode(state) }),
     { switchMode: switchMode }
 )
 
